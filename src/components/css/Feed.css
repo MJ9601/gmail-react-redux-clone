@@ -1,0 +1,16 @@
+.feed {
+  flex: 0.8;
+}
+.feed__mail_wrapper {
+  width: 100%;
+  padding: 1.5rem;
+  height: calc(100vh - 11.5rem);
+  background-color: rgb(255, 255, 255);
+}
+
+@media (max-width: 750px) {
+  .feed {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}

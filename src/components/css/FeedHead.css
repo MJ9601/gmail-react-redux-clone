@@ -1,0 +1,16 @@
+.feedhead {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 750px) {
+  .feedhead {
+    flex-direction: column;
+    justify-content: start;
+  }
+  .fHead__left,
+  .fHead__right {
+    display: flex;
+    flex-direction: column;
+  }
+}
