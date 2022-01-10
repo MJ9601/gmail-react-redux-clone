@@ -1,0 +1,79 @@
+.disEmail {
+  flex: 0.8;
+}
+.disEmail__container {
+  padding: 1.5rem;
+  height: calc(100vh - 11.5rem);
+  overflow-y: auto;
+  background-color: rgb(255, 255, 255);
+}
+.disEmail__iconSetting {
+  font-size: 2.3rem !important;
+}
+.disEmail__subject {
+  font-size: 2.6rem;
+  font-weight: 500;
+  margin-bottom: 1.9rem;
+}
+.disEmail__head {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.9rem;
+}
+.disEmail__info {
+  display: flex;
+  padding: 1rem;
+  align-items: flex-start;
+}
+.disEmail__sender {
+  margin-left: 1.3rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.disEmail__sender > h1 {
+  font-weight: 500;
+  font-size: 1.9rem;
+  margin-bottom: 0.3rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.disEmail__sender > h1 > span {
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+.disEmail__sender > p {
+  font-size: 1.5rem;
+}
+.disEmail__head > h5 {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.disEmail__msg {
+  padding: 0.8rem 5rem;
+  font-size: 1.8rem;
+  line-height: 2.9rem;
+  margin-bottom: 1.4rem;
+}
+.disEmail__iconWrapper {
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 750px) {
+  .disEmail {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  .disEmail__head > h5 {
+    display: none;
+  }
+  .disEmail__msg {
+    padding: 0.8rem;
+  }
+}

@@ -27,7 +27,7 @@
   color: rgb(202, 53, 53) !important;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 750px) {
   .sideOp__onhover.limited {
     display: none;
   }

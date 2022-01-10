@@ -16,10 +16,21 @@ import {
 } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../css/Sidebar.css";
 import SidebarOption from "./SidebarOption";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
+  const sideOptionButton = [
+    { Icon: Inbox, title: "Inbox", counter: 10 },
+    { Icon: Star, title: "Starred", counter: 10 },
+    { Icon: AccessTime, title: "Snoozed", counter: 10 },
+    { Icon: LabelImportant, title: "Important", counter: 10 },
+    { Icon: Send, title: "Send", counter: 10 },
+    { Icon: Note, title: "Drafts", counter: 10 },
+    { Icon: ExpandMore, title: "More", counter: 0 },
+  ];
   return (
     <div className="sidebar">
       <div className="sidebar__compose">
@@ -27,13 +38,14 @@ const Sidebar = () => {
         <span>Compose</span>
       </div>
       <div className="sidebar__options">
-        <SidebarOption Icon={Inbox} title="Inbox" counter={10} />
-        <SidebarOption Icon={Star} title="Starred" counter={10} />
-        <SidebarOption Icon={AccessTime} title="Snoozed" counter={10} />
-        <SidebarOption Icon={LabelImportant} title="Important" counter={10} />
-        <SidebarOption Icon={Send} title="Send" counter={10} />
-        <SidebarOption Icon={Note} title="Drafts" counter={10} />
-        <SidebarOption Icon={ExpandMore} title="More" />
+        {sideOptionButton.map(({ Icon, title, counter }, index) => (
+          <SidebarOption
+            key={index}
+            Icon={Icon}
+            title={title}
+            counter={counter}
+          />
+        ))}
       </div>
       <div className="sidebar__com">
         <IconButton>

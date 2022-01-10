@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/SidebarOption.css";
+import { useNavigate } from "react-router-dom";
 
 const SidebarOption = ({ Icon, title, counter }) => {
+  const navigate = useNavigate();
+  const [user, setUser] = useState("null");
   return (
-    <div className="sideOp">
+    <div
+      className="sideOp"
+      onClick={() => title !== "More" && navigate(`/${user}/${title}`)}
+    >
       <div>
         <Icon
           sx={{ fontSize: "2rem", mr: ".5rem" }}
