@@ -1,0 +1,27 @@
+{
+  "userId": {
+    "displayName": "name",
+    "uid": "userId",
+    "photoURL": "photoUrl",
+    "email": "userEmail",
+    "mails": [
+      {
+        "mailId": {
+          "subject": "subject",
+          "sender": "senderEmail",
+          "receiver": "receiverEmail",
+          "message": "messageEmail",
+          "timestamp": "EmailTimeStamp",
+          "isArchived": false,
+          "isDrafted": true,
+          "isImportant": false,
+          "isInbox": true,
+          "isRead": true,
+          "isSent": false,
+          "isStarred": false,
+          "isSnoozed": false
+        }
+      }
+    ]
+  }
+}

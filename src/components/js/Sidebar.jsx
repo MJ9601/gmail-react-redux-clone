@@ -16,12 +16,15 @@ import {
 } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { sendMailOpen } from "../../features/mailSlice";
 import "../css/Sidebar.css";
 import SidebarOption from "./SidebarOption";
 
 const Sidebar = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const sideOptionButton = [
     { Icon: Inbox, title: "Inbox", counter: 10 },
     { Icon: Star, title: "Starred", counter: 10 },
@@ -33,7 +36,10 @@ const Sidebar = () => {
   ];
   return (
     <div className="sidebar">
-      <div className="sidebar__compose">
+      <div
+        className="sidebar__compose"
+        onClick={() => dispatch(sendMailOpen())}
+      >
         <Add sx={{ fontSize: "2rem", mr: ".4rem" }} />
         <span>Compose</span>
       </div>

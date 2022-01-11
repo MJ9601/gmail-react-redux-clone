@@ -1,43 +1,57 @@
 import {
   AccessTime,
   Archive,
+  CheckBox,
   CropSquare,
   Delete,
   Drafts,
+  Label,
   LabelOutlined,
+  Mail,
+  Star,
   StarOutline,
+  WatchLater,
 } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 import React, { useState } from "react";
 import "../css/Email.css";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { selectUser } from "../../features/userSlice";
+import { setMail } from "../../features/mailSlice";
 
-const Email = () => {
+const Email = ({ mailData, mail }) => {
   const navigate = useNavigate();
-  const [user, setUser] = useState("null");
+  const dispatch = useDispatch();
   const iconButton = (Icon) => (
     <IconButton>
       <Icon sx={{ fontSize: "2rem", mx: ".1rem" }} />
     </IconButton>
   );
+
+  const handleClick = () => {
+    dispatch(setMail(mail));
+    navigate(`/mail/${mail.mailId}`);
+  };
   return (
-    <div className="email" onClick={() => navigate(`/${user}/mail/id`)}>
+    <div
+      className="email"
+      style={{ backgroundColor: mailData.isRead && "#fff" }}
+      onClick={handleClick}
+    >
       <div className="email__icon_wrapper">
         {iconButton(CropSquare)}
-        {iconButton(StarOutline)}
-        {iconButton(LabelOutlined)}
+        {!mailData.isStarred ? iconButton(StarOutline) : iconButton(Star)}
+        {!mailData.isImportant ? iconButton(LabelOutlined) : iconButton(Label)}
       </div>
-      <div className="email__sender">stackoverflow</div>
-      <div className="email__msg">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
-        officia vel ducimus, est iusto fuga.
-      </div>
+      <div className="email__sender">{mailData.sender}</div>
+      <div className="email__msg">{mailData.message}</div>
       <div className="email__date">9 jan</div>
       <div className="email__icon_onhover">
         {iconButton(Archive)}
         {iconButton(Delete)}
-        {iconButton(Drafts)}
-        {iconButton(AccessTime)}
+        {mailData.isRead ? iconButton(Drafts) : iconButton(Mail)}
+        {!mailData.isSnoozed ? iconButton(AccessTime) : iconButton(WatchLater)}
       </div>
     </div>
   );

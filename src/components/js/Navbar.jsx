@@ -6,12 +6,15 @@ import {
   Notifications,
   Search,
 } from "@mui/icons-material";
-import { Avatar, IconButton, iconButtonClasses } from "@mui/material";
+import { Avatar, IconButton } from "@mui/material";
 import React from "react";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../features/userSlice";
 import "../css/Navbar.css";
 import logo from "../logo.png";
 
 const Navbar = () => {
+  const user = useSelector(selectUser);
   return (
     <div className="navbar">
       <div className="navbar__left">
@@ -37,7 +40,7 @@ const Navbar = () => {
           <Notifications className="navbar__icons" />
         </IconButton>
         <IconButton>
-          <Avatar></Avatar>
+          <Avatar src={user.photoURL}>{user.displayName[0]}</Avatar>
         </IconButton>
       </div>
     </div>

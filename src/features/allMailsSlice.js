@@ -2,24 +2,29 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   allMails: [],
+  mailList: [],
   status: "idle",
 };
 
-export const allMailsSlice = createSlice({
-  name: "allMails",
+export const mailsSlice = createSlice({
+  name: "mails",
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
     // Use the PayloadAction type to declare the contents of `action.payload`
-    setallMails: (state, action) => {
+    setAllMails: (state, action) => {
       state.allMails = action.payload;
+    },
+    setMailList: (state, action) => {
+      state.mailList = action.payload;
     },
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,
 });
 
-export const { setallMails } = allMailsSlice.actions;
+export const { setAllMails, setMailList } = mailsSlice.actions;
 
-export const selectallMails = (state) => state.allMails.allMails;
+export const selectAllMails = (state) => state.mails.allMails;
+export const selectMailList = (state) => state.mails.mailList;
 
-export default allMailsSlice.reducer;
+export default mailsSlice.reducer;

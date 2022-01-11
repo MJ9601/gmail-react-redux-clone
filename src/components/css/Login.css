@@ -8,6 +8,11 @@
   background-color: rgb(255, 255, 255);
   display: grid;
   place-items: center;
-  padding: 5rem 10rem;
+  width: 50%;
+  max-width: 50rem;
   box-shadow: 0.1rem 0.2rem 0.8rem 0.3rem rgba(0, 0, 0, 0.3);
+}
+.login__img {
+  width: 80%;
+  object-fit: contain;
 }
